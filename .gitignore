@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Project ###
-/src/main/resources/
+!/src/main/resources/
