@@ -9,5 +9,4 @@ public class Comp380EcommerceWebsiteApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Comp380EcommerceWebsiteApplication.class, args);
 	}
-
 }
