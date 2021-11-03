@@ -11,11 +11,18 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
+	@Autowired
+	private CartRepository cartRepository;
+
 	public List<Product> findAll() {
 		return (List<Product>) productRepository.findAll();
 	}
 
 	public Product findById(int id) {
 		return productRepository.findById(id).orElseThrow(RuntimeException::new);
+	}
+
+	public Cart saveToCart(Product product) {
+		return cartRepository.save(product);
 	}
 }
