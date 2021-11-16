@@ -1,14 +1,43 @@
 package com.sharingan.comp380ecommercewebsite.cart;
 
-/*
+import javax.persistence.*;
+
+@Entity
 public class Cart {
-	// TODO: Complete cart class, similar to Product.java
 
-	// TODO: Afterwards, similar to ProductController.java and ProductService.java, need findAll()
-		// TODO: but needs to be on the @RequestMapping("/api/cart")
-		// TODO: the CartController.java will only need the single @GetMapping findAll(), no id needed
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(
+		name = "cartid"
+	)
+	private int cartID;
 
-	// TODO: Cart class has columns 'cartid', 'productid', 'quantity'
+	@Column(
+		name = "productid"
+	)
+	private int productId;
+
+	@Column(
+		name = "quantity"
+	)
+	private int quantity;
+
+	public Cart(){}
+
+	public Cart(int productId, int quantity) {
+		this.productId = productId;
+		this.quantity = quantity;
+	}
+
+	public int getCartID() {
+		return cartID;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
 }
-
- */
