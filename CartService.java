@@ -17,4 +17,22 @@ public class CartService {
 	public Product findById(int id) {
 		return product.findById(id);
 	}
+
+public List<Product> getProducts() {
+  
+   List<Cart> cartList = cartRepository.findAll();
+   List<Product> productList = new ArrayList<>();
+
+   for (Cart cartItem : cartList) {
+      
+      productList.add(findbyid);
+}
+
+   return productList;    
+}
+   List<Object> myList;
+   for (Object tempName : myList) {
+      
+      tempName.getShit();
+} 
 }
