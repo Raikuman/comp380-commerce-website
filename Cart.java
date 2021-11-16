@@ -19,7 +19,7 @@ public class Cart {
    
    @JoinColumn(name = "productid")
   
-   private Product product;
+   private int productID;
       
    @Column(
 		name = "totalcost"
