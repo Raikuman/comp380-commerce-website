@@ -30,9 +30,5 @@ public List<Product> getProducts() {
 
    return productList;    
 }
-   List<Object> myList;
-   for (Object tempName : myList) {
-      
-      tempName.getShit();
-} 
+
 }
