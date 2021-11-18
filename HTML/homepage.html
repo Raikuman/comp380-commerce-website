@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharingan</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fpngkey.com-sharingan-png-4377742.png?v=1636600383605" width="125px">
+            <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2FRight%20eye.png?v=1636600408926" width="125px">
+          </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contacts</a></li>
+            <li><a href="">Cart</a></li>
+          </ul>
+          <!-- fix the alignment plz -->
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fcart.png?v=1636603220903" width="30px" height="30px">
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fmenu.png?v=1636872799914" class="menu-icon" onclick="menutoggle()">
+        </nav>
+        </div>
+        <!--I commented out the image header because I couldn't figure out why it wasn't aligning but made my own solution
+          <!--<div class="row">
+            <div class="col-2">
+              <h1>Any Technique is Worthless <br> Before My Eyes.</h1>
+              <p>Get your Sharingan clothing and accessories right here</p>
+            </div>
+          <div class="col-2">
+            <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fpngkey.com-itachi-png-8948327.png?v=1636596887705">
+          </div>
+        </div> -->
+        <div class="image-txt-container">
+          <div class="text">
+            <h1>Any Technique is Worthless <br> Before My Eyes.</h1>
+            <p>Get your Sharingan clothing and accessories right here</p>
+          </div>
+          <div class="image">
+            <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fpngkey.com-itachi-png-8948327.png?v=1636596887705" height="300px" width="300px" padding="1" >
+          </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-------- featured categories ------->
+    <div class="categories">
+      <h2 class="title">Categories</h2>
+      <div class="small-container">
+        <div class="row">
+        <div class="col-3">
+          <h3>Clothing</h3>
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2FAkatsuki_hoodie.jpeg?v=1636420155178">
+        </div>
+        <div class="col-3">
+          <h3>Acessories</h3>
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2FHidden%20Leaf%20and%20Ninja%20Bandana%20Necklace.png?v=1636421472704">
+        </div>
+        <div class="col-3">
+          <h3>Posters</h3>
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fnike%20naruto.jpeg?v=1636422311682">
+        </div>
+        <div class="col-3">
+          <h3>Media</h3>
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2FUltimate%20Ninja%20Storm%20Trilogy.jpg?v=1636422457837">
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <!-------featured product-------->
+    <div class="small-container">
+      <h2 class="title">Featured Products</h2>
+      <div class="row">
+        <div class="col-4">
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fjiraiya%20christmas%20sweater.jpeg?v=1636421329899">
+          <h4>Jiraiya Christmas Sweater</h4>
+          <div class="rating"> 
+          </div>
+          <p>$50,000</p>
+        </div>
+        <div class="col-4">
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fakatsuki%20pendant%20necklace.jpeg?v=1636421372298">
+          <h4>Akatsuki necklace</h4>
+          <div class="rating"> 
+          </div>
+          <p>$10</p>
+        </div>
+        <div class="col-4">
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fzabuza%20sword%20replica.jpeg?v=1636421677696">
+          <h4>Zabuza Sword Replica</h4>
+          <div class="rating"> 
+          </div>
+          <p>$45</p>
+        </div>
+        <div class="col-4">
+          <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2FBlood%2C%20Black%20and%20White%20Akatsuki%20.jpeg?v=1636422365839">
+          <h4>Blood, Black and White Akatsuki</h4>
+          <div class="rating"> 
+          </div>
+          <p>$10</p>
+        </div>
+      </div>
+    </div>
+    
+    <!----------- Footer------------>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Download App for Android and ios mobile phone</p>
+            <div class="app-logo">
+              <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fplay-store.png?v=1636872490615">
+              <img src="https://cdn.glitch.me/f1fa65f4-5f0f-402a-9ff2-2a42121a91f3%2Fapp-store.png?v=1636872504417">
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <h3>Links</h3>
+            <ul>
+              <li>Contact Us</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+            </ul>
+          </div>
+          <div class="footer-col-3">
+            <h3>Follow us</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Youtube</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2021 - Team Sharingan</p>
+      </div>
+    </div> 
+    
+    
+    
+<!-------js for toggle menu ------>
+    <script>
+    var MenuItems = document.getElementById("MenuItems");
+      
+      MenuItems.style.maxHeight = "0px";
+      
+      function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+          {
+            MenuItems.style.maxHeight = "200px"
+          }
+        else
+          {
+            MenuItems.style.maxHeight = "0px"
+          }
+      }
+    </script>
+    
+  </body>
+</html>
