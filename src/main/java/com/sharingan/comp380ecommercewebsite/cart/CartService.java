@@ -24,10 +24,20 @@ public class CartService {
 
 		for (Cart cartItem : cartList) {
 			productList.add(
-				productService.findById(cartItem.getCartID())
+				productService.findById(cartItem.getProductId())
 			);
 		}
 
 		return productList;
+	}
+
+	public double getCartTotal() {
+
+		double total = 0;
+		for (Product product : getProducts()) {
+			total += product.getPrice();
+		}
+
+		return total;
 	}
 }
