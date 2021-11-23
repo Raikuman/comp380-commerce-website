@@ -12,15 +12,11 @@ import java.util.List;
  *
  * @author Jim Inong
  * @since 2021-22-11
- * @version 1.0
  */
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
 
-	/**
-	 * Provides an instance of ProductService on runtime
-	 */
 	@Autowired
 	private ProductService productService;
 

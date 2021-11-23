@@ -8,6 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Jim Inong
  * @since 2021-22-11
- * @version 1.0
  */
 public interface ProductRepository extends CrudRepository<Product, Integer> {}
