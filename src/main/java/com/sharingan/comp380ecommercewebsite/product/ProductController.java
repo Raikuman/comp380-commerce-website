@@ -6,25 +6,49 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class exposes the endpoints for the product objects and uses methods from the productService class
+ * for logic
+ *
+ * @author Jim Inong
+ * @since 2021-22-11
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
 
+	/**
+	 * Provides an instance of ProductService on runtime
+	 */
 	@Autowired
 	private ProductService productService;
 
-	// No specific map, show all products
+	/**
+	 * Base GetMapping for "/api/product" to get a list of products from the service
+	 * @return Returns a list of product objects
+	 */
 	@GetMapping
 	public List<Product> findAll() {
 		return productService.findAll();
 	}
 
-	// Id mapping, show product with id
+	/**
+	 * This method finds a product by its id and returns the product object
+	 * @param id Provides the id from the mapping "/{id}"
+	 * @return Returns a product object
+	 */
 	@GetMapping("/{id}")
 	public Product findById(@PathVariable int id) {
 		return productService.findById(id);
 	}
 
+	/**
+	 * This method gets a post request from the webpage and uses the RequestBody Cart object for the
+	 * product service to add to the cart database
+	 * @param cartItem Provides a cart item object
+	 * @return Returns a cart item object
+	 */
 	@PostMapping
 	public Cart addToCart(@RequestBody Cart cartItem) {
 		return productService.saveToCart(cartItem);
