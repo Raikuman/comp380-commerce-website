@@ -13,20 +13,13 @@ import java.util.List;
  *
  * @author Jim Inong
  * @since 2021-22-11
- * @version 1.0
  */
 @Service
 public class ProductService {
 
-	/**
-	 * Provides an instance of the product repository from the database
-	 */
 	@Autowired
 	private ProductRepository productRepository;
 
-	/**
-	 * Provides an instance of the cart repository from the database
-	 */
 	@Autowired
 	private CartRepository cartRepository;
 
