@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.sharingan.comp380ecommercewebsite"},{"l":"com.sharingan.comp380ecommercewebsite.cart"},{"l":"com.sharingan.comp380ecommercewebsite.config"},{"l":"com.sharingan.comp380ecommercewebsite.confirmation"},{"l":"com.sharingan.comp380ecommercewebsite.product"}]
