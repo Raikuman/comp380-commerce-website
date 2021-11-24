@@ -14,6 +14,18 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/cart")
+
+
+/**
+*@actions Cart Requests
+*@return Product
+*@return Product ID
+*@return Product Quantity
+*@return Product Price
+*@remove Cart Item
+*@return Cart Price
+*/
+
 public class CartController {
 
 	@Autowired
