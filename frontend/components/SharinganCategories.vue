@@ -1,3 +1,7 @@
+<!--Created by Lloyd Aclan
+    Date: 11-15-2021
+    Discription: Displays the first row of categories used to navigate the user to the desired product
+-->
 <template>
     <div>
         <!-------- featured categories ------->

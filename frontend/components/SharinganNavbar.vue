@@ -1,3 +1,7 @@
+<!--Created by Lloyd Aclan
+    Date: 11-15-2021
+    Discription: Displays the Navigation headder on top for each page of the app
+-->
 <template>
     <div class="header">
             <div class="navbar">
