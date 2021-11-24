@@ -1,6 +1,7 @@
 <!--Created by Lloyd Aclan
     Date: 11-15-2021
     Discription: Displays the footer of the app and is styled by css at the bottom of the code
+-->
 
 <template>
     <div>
