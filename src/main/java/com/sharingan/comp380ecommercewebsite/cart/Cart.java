@@ -2,6 +2,12 @@ package com.sharingan.comp380ecommercewebsite.cart;
 
 import javax.persistence.*;
 
+/**
+ *
+ *
+ * @author Michael Sanati
+ * @since 2021-15-11
+ */
 @Entity
 public class Cart {
 
@@ -38,9 +44,5 @@ public class Cart {
 
 	public int getQuantity() {
 		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 }
