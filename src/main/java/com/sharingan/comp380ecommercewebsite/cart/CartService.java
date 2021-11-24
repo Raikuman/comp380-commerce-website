@@ -9,11 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- *
+ * @autowire ProductService
+ * @autowire Cart Repository
+ * @return Cart List
+ * @list Cart Products
+ * @return Cart Total
+ * @return Product Quantity
+ * @return Product Cost
+ * @increment Cart Total
+ * @return incremented Cart Total
  * @author Michael Sanati
  * @since 2021-15-11
  */
+
 @Service
 public class CartService {
 
