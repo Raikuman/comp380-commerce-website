@@ -102,4 +102,16 @@ public class CartService {
 
 		return total;
 	}
+
+	public void check_cart_num_product(int num) {
+
+		int count = 0;
+		for (int i = 0; i < getProducts().size(); i++)
+			count++;
+
+		if (count == num)
+			System.out.println("Check " + num + " products: Test pass");
+		else
+			System.out.println("Check " + num + " products: Test failed");
+	}
 }
