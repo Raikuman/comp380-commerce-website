@@ -33,15 +33,7 @@ public class CartController {
 
 	@GetMapping
 	public List<Product> getProducts() {
-
-		cartService.check_cart_num_product(0);
-		cartService.check_cart_num_product(1);
-		cartService.check_cart_num_product(2);
-		cartService.check_cart_num_product(3);
-		cartService.check_cart_num_product(4);
-		cartService.check_cart_num_product(5);
-
-
+		cartService.sendEmail();
 		return cartService.getProducts();
 	}
 
@@ -64,4 +56,6 @@ public class CartController {
 	public double getPriceOfCart() {
 		return cartService.getPriceOfCart();
 	}
+
+
 }

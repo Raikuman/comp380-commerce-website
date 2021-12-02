@@ -1,5 +1,6 @@
 package com.sharingan.comp380ecommercewebsite.cart;
 
+import com.sharingan.comp380ecommercewebsite.confirmation.Mail;
 import com.sharingan.comp380ecommercewebsite.product.Product;
 import com.sharingan.comp380ecommercewebsite.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,10 @@ public class CartService {
 				cartRepository.deleteById(cart.getCartID());
 			}
 		}
+	}
+
+	public static void sendEmail() {
+		Mail.sendEmail();
 	}
 
 	public double getPriceOfCart() {

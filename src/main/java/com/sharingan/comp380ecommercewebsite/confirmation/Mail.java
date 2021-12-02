@@ -2,29 +2,38 @@ package com.sharingan.comp380ecommercewebsite.confirmation;
 
 import com.sharingan.comp380ecommercewebsite.config.ConfigHandler;
 
-import java.util.*;
-import javax.mail.*;			//Java.mail is an external java file used to write an email using mimemessage.
-import javax.mail.internet.*;
-import javax.activation.*;     //Java.activation is an external java file used to transport and send the email.
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import java.util.Properties;
 
-/**
- * This class is used to send a thank you email to a respective client after they had made a purchase.
+
+/*
+ * This class is used to send a “Thank You” email to a respective client after they had made a purchase.
  * The class uses a SMTP server provided by google using a gmail account.
- * The email used was created for this project specifically and contians its password (Careful X-X)
+ * The email used was created for this project specifically and contains its password (Careful X-X)
  *
  * @author Gerardo Huerta
  * @since 2021-20-11
  */
 public class Mail{
 
-	/**
-	 * This method is used to setup an email, attach and create all of its components and send email to respective user
-	 */
+	/*
+	 * This method is used to set up an email, attach and create all of its components and send email to respective user
+     * @param products
+     */
+
 	public static void sendEmail() {
 
 		//Email that will be used for authentication
 		final String username = ConfigHandler.loadConfigSetting("email");
 
+		//int Item1 = products.getPrice();
 		//password for the email being used to authenticate
 		final String password = ConfigHandler.loadConfigSetting("password");
 
@@ -57,38 +66,46 @@ public class Mail{
 			}
 		});
 
+
+
 		try {
 
 			// compose the message
 			// javax.mail.internet.MimeMessage class is
 			// mostly used for abstraction.
 			Message message = new MimeMessage(session);
-			String receipient = ConfigHandler.loadConfigSetting("sendmail");;//example email, needs to be
+			String recipient= ConfigHandler.loadConfigSetting("sendmail");;//example email, needs to be
 			// implemented to call current user's email address //still not complete
 
 			// header field of the header.
 			assert username != null;
 			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receipient));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
 
 			message.setSubject("Thank You For Your Purchase");
 			// creating first MimeBodyPart object
 			BodyPart messageBodyPart1 = new MimeBodyPart();
 			messageBodyPart1
-					.setText("We are thankful for your purchase! :D" + System.lineSeparator() + "Thank you " +
-						"for shopping with us. Hope to see you soon!" + System.lineSeparator() + "Here is your receipt. Hava a nice day! UwU");
+					.setText("We are thankful for your purchase." + System.lineSeparator() + "Hope to see you soon! :D" + System.lineSeparator() +
+							"Below is receipt. Have a nice day! UwU" + System.lineSeparator());
 
 			// creating second MimeBodyPart object
 			BodyPart messageBodyPart2 = new MimeBodyPart();
-			String filename = "receipt.txt"; //This part is supposed to take a document and send it as an attachment in the email.
+			String filename = "receipt"; //This part is supposed to take a document and send it as an attachment in the email.
 			DataSource source = new FileDataSource(filename);
 			messageBodyPart2.setDataHandler(new DataHandler(source));
 			messageBodyPart2.setFileName(filename);
+
+			//ending part of email structure
+			BodyPart messageBodyPart3 = new MimeBodyPart();
+			messageBodyPart3.setText(System.lineSeparator() + "For customer support contact us via email:" + System.lineSeparator() +
+					"naruto.uchih.sharingan@gmail.com." + System.lineSeparator() + "Goodbye. ༼ つ ◕_◕ ༽つ");
 
 			// creating MultiPart object
 			Multipart multipartObject = new MimeMultipart();
 			multipartObject.addBodyPart(messageBodyPart1);
 			multipartObject.addBodyPart(messageBodyPart2);
+			multipartObject.addBodyPart(messageBodyPart3);
 
 			// set body of the email.
 			message.setContent(multipartObject);
