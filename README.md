@@ -29,7 +29,12 @@ Prerequisite: NodeJS latest version
 12. `What is your Github username?` Enter your GitHub username, though we won't be using Git for the frontend
 13. `Version control system: None`
 
-From here, npm will install all the required packages for the frontend
+From here, npm will install all the required modules for the frontend
+
+Though, there are still additional modules that need to be installed:
+
+1. `npm install node-sass@4.14.1`
+2. `npm install sass-loader@10.1.1`
 
 Afterwards, add all the files from the `/frontend` directory from our repo to the frontend NuxtJS project folder
 
