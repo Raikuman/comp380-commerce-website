@@ -47,6 +47,9 @@ public class CartService {
 			);
 		}
 
+		Mail cat1 = new Mail();
+		cat1.sendEmail();
+
 		return productList;
 	}
 
@@ -91,9 +94,9 @@ public class CartService {
 		}
 	}
 
-	public static void sendEmail() {
-		Mail.sendEmail();
-	}
+//	public static void sendEmail() {
+//		Mail.sendEmail();
+//	}
 
 	public double getPriceOfCart() {
 

@@ -17,7 +17,7 @@ public class ConfigHandler {
 	 */
 	public static String loadConfigSetting(String config) {
 
-		File file = new File("/config.txt");
+		File file = new File("config.txt");
 
 		// Check if file exists
 		if (!file.exists()) {
@@ -27,7 +27,7 @@ public class ConfigHandler {
 		// Get config from file
 		String readConfig = null;
 		for (String arrayString : FileLoader.readFileToArray(file))
-			if (arrayString.toLowerCase().contains(config.toLowerCase())) {
+			if (arrayString.contains(config)) {
 				readConfig = arrayString;
 				break;
 			}
@@ -35,7 +35,7 @@ public class ConfigHandler {
 		if (readConfig != null) {
 
 			// Get setting of the config
-			return readConfig.split("=")[1].toLowerCase();
+			return readConfig.split("=")[1];
 		}
 		else {
 			return null;
