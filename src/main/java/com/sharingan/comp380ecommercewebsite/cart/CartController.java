@@ -33,7 +33,6 @@ public class CartController {
 
 	@GetMapping
 	public List<Product> getProducts() {
-		//Mail.sendEmail();
 		return cartService.getProducts();
 	}
 

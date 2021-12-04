@@ -94,10 +94,6 @@ public class CartService {
 		}
 	}
 
-//	public static void sendEmail() {
-//		Mail.sendEmail();
-//	}
-
 	public double getPriceOfCart() {
 
 		double total = 0.0;
