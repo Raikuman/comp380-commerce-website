@@ -1,5 +1,7 @@
 package com.sharingan.comp380ecommercewebsite.cart;
 
+import com.sharingan.comp380ecommercewebsite.confirmation.Mail;
+import com.sharingan.comp380ecommercewebsite.other.CheckoutObj;
 import com.sharingan.comp380ecommercewebsite.product.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +35,6 @@ public class CartController {
 
 	@GetMapping
 	public List<Product> getProducts() {
-		cartService.sendEmail();
 		return cartService.getProducts();
 	}
 
@@ -55,6 +56,18 @@ public class CartController {
 	@GetMapping("/checkout/total")
 	public double getPriceOfCart() {
 		return cartService.getPriceOfCart();
+	}
+
+	@PostMapping("/checkout/complete")
+	public void completeCheckout(@RequestBody CheckoutObj checkout) {
+		// Checkout object holds the email and total
+		/*
+
+		1. Call the email method
+		2. Delete all items from the cart
+		3. Done
+
+		 */
 	}
 
 
