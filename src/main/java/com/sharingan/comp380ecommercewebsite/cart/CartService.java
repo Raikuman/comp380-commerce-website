@@ -50,16 +50,6 @@ public class CartService {
 		return productList;
 	}
 
-	public double getCartTotal() {
-
-		double total = 0;
-		for (Product product : getProducts()) {
-			total += product.getPrice();
-		}
-
-		return total;
-	}
-
 	public int getProductQuantity(int productId) {
 
 		for (Cart cart : cartRepository.findAll()) {
