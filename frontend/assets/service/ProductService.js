@@ -43,23 +43,21 @@ export default class ProductApi {
         })
     }
 
-    addToCart (productId, quantity) {
-        return this.axios({
-            method: 'post',
-            url: 'product',
-            data: {
-                productId,
-                quantity
-            }
-        })
-    }
-
     getSubtotal () {
         return this.axios({
             method: 'get',
             url: 'cart/checkout/total'
         }).then((response) => {
             return response.data
+        })
+    }
+
+    calculateTax () {
+        return this.axios({
+            method: 'get',
+            url: 'cart/checkout/total'
+        }).then((response) => {
+            return parseFloat(response.data * 0.07).toFixed(2)
         })
     }
 }

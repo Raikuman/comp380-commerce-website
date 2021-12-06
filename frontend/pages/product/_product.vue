@@ -50,15 +50,15 @@ export default {
             var quantity = document.getElementsByName("quantity")[0].value
 
             this.$axios({
-            method: 'post',
-            url: 'product',
-            data: {
-                productId,
-                quantity
-            }
-        }).then((response) => {
-            window.location.href = "/cart"
-        }) 
+                method: 'post',
+                url: 'product',
+                data: {
+                    productId,
+                    quantity
+                }
+            }).then((response) => {
+                window.location.href = "/cart"
+            }) 
         }
     }
 }

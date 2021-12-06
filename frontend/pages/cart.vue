@@ -13,12 +13,11 @@
         <cart-list :products = "products" />
 
         <div class="subtotal-container">
-            <h4>Total: ${{subtotal}}</h4>
+            <h2>Total: ${{subtotal}}</h2>
             <button class="btn" @click="checkoutFunc()">
                 <h3>Checkout</h3>
             </button>
         </div>
-
 
         <!-------- footer ------->
         <sharingan-footer/>
@@ -86,6 +85,8 @@ export default {
 .subtotal-container .btn {
     margin: 10px;
     display: flex;
+    border: none;
+    font-family: 'Mochiy Pop P One', sans-serif;
 }
 
 </style>

@@ -77,7 +77,7 @@ export default {
     float: left;
  flex-basis: 25%;
 padding: 10px;
-min-height: 200px;
+min-height: 250px;
 margin: 5px auto;
 box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
