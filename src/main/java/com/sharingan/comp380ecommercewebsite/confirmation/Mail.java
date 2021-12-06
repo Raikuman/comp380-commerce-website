@@ -15,8 +15,8 @@ import java.util.Properties;
 
 /*
  * This class is used to send a “Thank You” email to a respective client after they had made a purchase.
- * The class uses a SMTP server provided by google using a gmail account.
- * The email used was created for this project specifically and contains its password (Careful X-X)
+ * The class uses an SMTP server provided by google using a gmail account.
+ * An email was created specifically for this website.
  *
  * @author Gerardo Huerta
  * @since 2021-20-11
@@ -24,97 +24,100 @@ import java.util.Properties;
 public class Mail{
 
 	/*
-	 * This method is used to set up an email, attach and create all of its components and send email to respective user
-     * @param products
+	 * The method below is used to set up an email by attaching and creating all of its components.
+	 * This method needs the help of ConfigHandler to extract sensitive information like emails and passwords.
+	 * Finally, an email is sent to respective user.
      */
 
-	public static void sendEmail() {
+	public void sendEmail() {
+		// ConfigHandler extracts Customer/user email to be sent.
+		String to = ConfigHandler.loadConfigSetting("sendtoemail");
 
-		//Email that will be used for authentication
+		// ConfigHandler extracts website's information.
+		String from = ConfigHandler.loadConfigSetting("email");
+
+		// Google's SMTP address used to send the email.
+		String host = "smtp.gmail.com";
+
+		// this information is used for authentication when accessing SMTP server.
 		final String username = ConfigHandler.loadConfigSetting("email");
-
-		//int Item1 = products.getPrice();
-		//password for the email being used to authenticate
 		final String password = ConfigHandler.loadConfigSetting("password");
 
-		//final String host = "smtp.gmail.com";
-
-		// Get system properties
-		Properties props = new Properties();
-
-		// enable authentication the email is using googles smtp server which is free
-		props.put("mail.smtp.auth", "true");
-
-		// enable STARTTLS
-		props.put("mail.smtp.starttls.enable", "true");
-
-		// Setup mail server
-		props.put("mail.smtp.host", "smtp.gmail.com");
-
-		// TLS Port
-		props.put("mail.smtp.port", ConfigHandler.loadConfigSetting("tlsport"));
+		// setting up properties for proper use of the SMTP server
+		Properties properties = System.getProperties();
+		properties.setProperty("mail.smtp.host", host);
+		properties.put("mail.smtp.port", ConfigHandler.loadConfigSetting("tlsport"));
+		properties.put("mail.smtp.auth", "true");
+		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
 		// creating Session instance referenced to
-		// Authenticator object to pass in
+		// an Authenticator object to pass in
 		// Session.getInstance argument
-		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+		Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
 
 			// override the getPasswordAuthentication method
 			protected PasswordAuthentication getPasswordAuthentication() {
-
 				return new PasswordAuthentication(username, password);
 			}
 		});
 
-
-
+		// use of Try/Catch for error handling.
 		try {
-
-			// compose the message
+			// MESSAGE COMPOSITION
 			// javax.mail.internet.MimeMessage class is
 			// mostly used for abstraction.
-			Message message = new MimeMessage(session);
-			String recipient= ConfigHandler.loadConfigSetting("sendmail");;//example email, needs to be
-			// implemented to call current user's email address //still not complete
+			// MimeMessage object is created to form an email
+			MimeMessage message = new MimeMessage(session);
 
-			// header field of the header.
-			assert username != null;
-			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
-
+			// MimeMessage header field
+			assert from != null; //used to avoid a nullpointer exception.
+			message.setFrom(new InternetAddress(from));
+			assert to != null;
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			message.setSubject("Thank You For Your Purchase");
+
 			// creating first MimeBodyPart object
+			// contains first lines of the email / structure formatting.
 			BodyPart messageBodyPart1 = new MimeBodyPart();
-			messageBodyPart1
-					.setText("We are thankful for your purchase." + System.lineSeparator() + "Hope to see you soon! :D" + System.lineSeparator() +
-							"Below is receipt. Have a nice day! UwU" + System.lineSeparator());
+			messageBodyPart1                  //First lines of email / structure formatting.
+					.setText("We are thankful for your purchase." + System.lineSeparator() + "Hope to see you soon! :D"
+							+ System.lineSeparator() + "Below is your receipt. Have a nice day! UwU" + System.lineSeparator());
 
 			// creating second MimeBodyPart object
+			// contains an attachment -> purchase receipt
 			BodyPart messageBodyPart2 = new MimeBodyPart();
-			String filename = "receipt"; //This part is supposed to take a document and send it as an attachment in the email.
-			DataSource source = new FileDataSource(filename);
+			String filePath = "src/main/java/com/sharingan/comp380ecommercewebsite/confirmation/receipt.txt";
+			DataSource source = new FileDataSource(filePath);
 			messageBodyPart2.setDataHandler(new DataHandler(source));
-			messageBodyPart2.setFileName(filename);
+			messageBodyPart2.setFileName("receipt");
 
-			//ending part of email structure
+			// creating third MimeBodyPart object
+			// contains ending part of email structure
 			BodyPart messageBodyPart3 = new MimeBodyPart();
 			messageBodyPart3.setText(System.lineSeparator() + "For customer support contact us via email:" + System.lineSeparator() +
-					"naruto.uchih.sharingan@gmail.com." + System.lineSeparator() + "Goodbye. ༼ つ ◕_◕ ༽つ");
+					"naruto.uchih.sharingan@gmail.com." + System.lineSeparator() + "Goodbye.");
 
 			// creating MultiPart object
+			// used to put all MimeBodyParts altogether
 			Multipart multipartObject = new MimeMultipart();
 			multipartObject.addBodyPart(messageBodyPart1);
 			multipartObject.addBodyPart(messageBodyPart2);
 			multipartObject.addBodyPart(messageBodyPart3);
 
-			// set body of the email.
+			// MemeMessage body setup of the email
+			// sets Multipart as the body.
 			message.setContent(multipartObject);
-			Transport.send(message); // send Message
 
+			// where the magic happens
+			// send Message
+			Transport.send(message);
+
+			// Confirmation for successful email delivery
 			System.out.println("Done");
 
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+		} catch (MessagingException mex) {
+			mex.printStackTrace();
 		}
 	}
 }

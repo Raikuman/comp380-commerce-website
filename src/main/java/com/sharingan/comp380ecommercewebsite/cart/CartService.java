@@ -47,6 +47,9 @@ public class CartService {
 			);
 		}
 
+		Mail cat1 = new Mail();
+		cat1.sendEmail();
+
 		return productList;
 	}
 
@@ -79,10 +82,6 @@ public class CartService {
 				cartRepository.deleteById(cart.getCartID());
 			}
 		}
-	}
-
-	public static void sendEmail() {
-		Mail.sendEmail();
 	}
 
 	public double getPriceOfCart() {
