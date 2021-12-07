@@ -29,9 +29,9 @@ public class Mail{
 	 * Finally, an email is sent to respective user.
      */
 
-	public void sendEmail() {
+	public void sendEmail(String abc) {
 		// ConfigHandler extracts Customer/user email to be sent.
-		String to = ConfigHandler.loadConfigSetting("sendtoemail");
+		String to = abc;
 
 		// ConfigHandler extracts website's information.
 		String from = ConfigHandler.loadConfigSetting("email");
