@@ -236,6 +236,13 @@ select:focus{
 .form-box{
   background: radial-gradient(#fff,#ffd6d6);
   padding: 10px;
+  display: flex;
+}
+
+.form-box h4{
+margin: auto;
+margin-right: 15px;
+height: 25px;
 }
 
 /*----------Single product details-----------*/

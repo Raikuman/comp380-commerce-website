@@ -9,9 +9,9 @@
             <!-----Search Bar ------>
             <div class="head">
                 <form>
-                    <div class="form-box">  
+                    <div class="form-box">
+                        <h4>Search</h4>
                         <input class="search-field productName" name="search" type="text" id="searchBar" v-model="searchTerm" placeholder="Name of product"/>
-                        <button class="search-btn" type="button">Search</button>
                     </div>
                 </form>
             </div>
