@@ -13,7 +13,6 @@
             </div>
 
             <input type="text" id="address" placeholder="Address">
-            <input type="text" id="street" placeholder="Street">
 
             <div class="three-input-container">
                 <input type="text" id="city" placeholder="City">
