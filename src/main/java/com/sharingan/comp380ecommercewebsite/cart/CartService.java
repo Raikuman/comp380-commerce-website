@@ -47,9 +47,6 @@ public class CartService {
 			);
 		}
 
-		Mail cat1 = new Mail();
-		cat1.sendEmail();
-
 		return productList;
 	}
 
@@ -95,6 +92,10 @@ public class CartService {
 		}
 
 		return total;
+	}
+
+	public void deleteCart() {
+		cartRepository.deleteAll();
 	}
 
 	public void check_cart_num_product(int num) {

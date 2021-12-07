@@ -60,14 +60,10 @@ public class CartController {
 
 	@PostMapping("/checkout/complete")
 	public void completeCheckout(@RequestBody CheckoutObj checkout) {
-		// Checkout object holds the email and total
-		/*
+		Mail a = new Mail();
+		a.sendEmail(checkout.getEmail());
 
-		1. Call the email method
-		2. Delete all items from the cart
-		3. Done
-
-		 */
+		cartService.deleteCart();
 	}
 
 
