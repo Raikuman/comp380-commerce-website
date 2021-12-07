@@ -58,6 +58,46 @@ export default {
             products: await ctx.app.$services.product.findAll()
         }
     }
+    searchFunction() {
+        const productList = document.getElementById('productsList');
+        const searchBar = document.getelementById('searchBar');
+        let sharinganProducts = [];
+        console.log(searchBar);
+
+        searchBar.addEventListener('keyup', (e) --> {
+        const searchString = e.target.value.lowercase();
+        console.log(searchString);
+        //if searchString is H --> h
+        //if searchString is h --> h
+        //convert prodct name to lowercase and then compare
+
+       const filteredProducts = sharinganProducts.filter( product --> {
+           return (
+           product.name.toLowerCase().includes(searchString;)
+           );
+       });
+
+       displayProducts(filteredProducts);
+       });
+
+      const loadProducts = async () --> {
+
+      try {
+
+          const res = await fetch ('websiteurlhere.com');
+          let sharinganProducts = await res.json();
+          displayProducts(sharinganProducts);
+          console.log(sharinganProducts);
+          }
+    
+    catch (err) {
+         
+         console.error(err);
+         }
+    }
+
+loadProducts();
+        }
 }
 
 </script>
