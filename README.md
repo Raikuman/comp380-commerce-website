@@ -11,7 +11,7 @@ What are we using?
 3. Using NuxtJS framework for the frontend
 
 ## Running the backend
-Our backend can be ran with either a compiled `.jar` with a `Start.bat` file, or taking the code from this github
+Our backend can be run with either a compiled `.jar` with a `Start.bat` file, or taking the code from this github
 and running in an IDE
 
 Running the backend on your own computer will need permission by the repo owners as our database can only be accessed by us
