@@ -10,6 +10,12 @@ What are we using?
 2. Using Spring's internal HikariCP JDBC libraries to connect to our AWS RDS mySQL cloud database
 3. Using NuxtJS framework for the frontend
 
+## Running the backend
+Our backend can be ran with either a compiled `.jar` with a `Start.bat` file, or taking the code from this github
+and running in an IDE
+
+Running the backend on your own computer will need permission by the repo owners as our database can only be accessed by us
+
 ## Running the frontend
 Files found in the `/frontend` directory in our repo need to be placed in a pre-existing NuxtJS installation
 
